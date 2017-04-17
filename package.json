@@ -1,0 +1,30 @@
+{
+  "name": "amr-duration",
+  "version": "0.1.0",
+  "description": "calculate amr duration",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "chai": "^3.5.0"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Casstime/amr-duration.git"
+  },
+  "keywords": [
+    "amr",
+    "duration"
+  ],
+  "author": "pansinm <pansinm@foxmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Casstime/amr-duration/issues"
+  },
+  "homepage": "https://github.com/Casstime/amr-duration#readme"
+}

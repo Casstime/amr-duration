@@ -1,0 +1,10 @@
+.idea
+node_modules
+logs
+.vscode
+history
+public/lib
+typings
+typings.json
+npm-debug.log
+public/js/chat.bundle.js
