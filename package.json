@@ -1,6 +1,6 @@
 {
   "name": "amr-duration",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "calculate amr duration",
   "main": "index.js",
   "directories": {

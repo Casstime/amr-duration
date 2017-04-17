@@ -51,7 +51,7 @@ function getDurationByBuffer(buffer, callback) {
   const PackedByte = [12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0];
 
   if (buffer.indexOf(MAGIC_NUMBER) !== 0) {
-    callback(new Error(`Buffer not start with "${MAGIC_NUMBER}"`));
+    return callback(new Error(`Buffer not start with "${MAGIC_NUMBER}"`));
   }
 
   let pos = MAGIC_NUMBER.length;
