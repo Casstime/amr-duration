@@ -47,11 +47,23 @@ function getDurationByFilename(filename, callback) {
 }
 
 function getDurationByBuffer(buffer, callback) {
-  const MAGIC_NUMBER = '#!AMR\n';
-  const PackedByte = [12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0];
+  const NB_MAGIC_NUMBER = '#!AMR\n';
+  const WB_MAGIC_NUMBER = '#!AMR-WB\n';
 
-  if (buffer.indexOf(MAGIC_NUMBER) !== 0) {
-    return callback(new Error(`Buffer not start with "${MAGIC_NUMBER}"`));
+  const NBPackedByte = [12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0];
+  const WBPackedByte = [17, 22, 32, 36, 40, 46, 50, 58, 60, 5, 0, 0, 0, 0, 0, 0];
+
+  let MAGIC_NUMBER;
+  let PackedByte;
+
+  if (buffer.indexOf(NB_MAGIC_NUMBER) === 0) {
+    MAGIC_NUMBER = NB_MAGIC_NUMBER;
+    PackedByte = NBPackedByte;
+  } else if (buffer.indexOf(WB_MAGIC_NUMBER) === 0) {
+    MAGIC_NUMBER = WB_MAGIC_NUMBER;
+    PackedByte = WBPackedByte;
+  } else {
+    return callback(new Error(`Buffer not starts with ${NB_MAGIC_NUMBER} or ${WB_MAGIC_NUMBER}`));
   }
 
   let pos = MAGIC_NUMBER.length;
